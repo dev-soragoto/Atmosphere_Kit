@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.bin binary
+*.bmp binary
+*.jpg binary
+*.nro binary
+*.nsp binary
+*.ovl binary
+*.png binary
+*.zip binary

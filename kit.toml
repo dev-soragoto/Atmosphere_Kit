@@ -1,0 +1,161 @@
+[build]
+output_dir = "SwitchSD"
+zip_name = "SwitchSD.zip"
+description_file = "description.txt"
+max_parallel_downloads = 5
+required = ["Atmosphere", "Fusee", "Hekate + Nyx"]
+directories = [
+  "atmosphere/config",
+  "atmosphere/config_emummc",
+  "atmosphere/hosts",
+  "atmosphere/contents",
+  "atmosphere/kips",
+  "bootloader/payloads",
+  "config/ultrahand/lang",
+  "switch/Switch_90DNS_tester",
+  "switch/DBI",
+  "switch/.overlays",
+  "switch/.packages",
+]
+
+[[packages]]
+group = "core"
+name = "Atmosphere"
+repo = "Atmosphere-NX/Atmosphere"
+kind = "archive"
+name_pattern = 'atmosphere.*\.zip'
+
+[[packages]]
+group = "core"
+name = "Fusee"
+repo = "Atmosphere-NX/Atmosphere"
+kind = "file"
+name_pattern = 'fusee\.bin'
+target = "bootloader/payloads/fusee.bin"
+
+[[packages]]
+group = "core"
+name = "Hekate + Nyx"
+repo = "CTCaer/hekate"
+kind = "archive"
+name_pattern = 'hekate_ctcaer.*\.zip'
+
+[[packages]]
+group = "payload"
+name = "Lockpick_RCM"
+repo = "Kofysh/Lockpick_RCM"
+kind = "file"
+name_pattern = 'Lockpick_RCM\.bin'
+target = "bootloader/payloads/Lockpick_RCM.bin"
+
+[[packages]]
+group = "payload"
+name = "TegraExplorer"
+repo = "suchmememanyskill/TegraExplorer"
+kind = "file"
+name_pattern = 'TegraExplorer\.bin'
+target = "bootloader/payloads/TegraExplorer.bin"
+
+[[packages]]
+group = "homebrew"
+name = "Switch_90DNS_tester"
+repo = "meganukebmp/Switch_90DNS_tester"
+kind = "file"
+name_pattern = 'Switch_90DNS_tester\.nro'
+target = "switch/Switch_90DNS_tester/Switch_90DNS_tester.nro"
+
+[[packages]]
+group = "special"
+name = "DBI"
+repo = "rashevskyv/DBIPatcher"
+kind = "multi_file"
+
+[[packages.assets]]
+name_pattern = '^DBI\.nro$'
+target = "switch/DBI/DBI.nro"
+
+[[packages.assets]]
+name_pattern = 'translation_zhcn\.bin'
+target = "switch/DBI/translation.bin"
+
+[[packages]]
+group = "system"
+name = "sys-patch"
+repo = "impeeza/sys-patch"
+kind = "archive"
+name_pattern = 'sys-patch.*\.zip'
+
+[[packages]]
+group = "system"
+name = "StatusMonitor"
+repo = "masagrator/Status-Monitor-Overlay"
+kind = "archive"
+name_pattern = 'Status-Monitor-Overlay\.zip'
+
+[[packages]]
+group = "system"
+name = "MissionControl"
+repo = "ndeadly/MissionControl"
+kind = "archive"
+name_pattern = 'MissionControl.*\.zip'
+
+[[packages]]
+group = "system"
+name = "QuickNTP"
+repo = "nedex/QuickNTP"
+kind = "archive"
+name_pattern = 'quickntp.*\.zip'
+
+[[packages]]
+group = "system"
+name = "EdiZon"
+repo = "proferabg/EdiZon-Overlay"
+kind = "archive"
+name_pattern = 'EdiZon-Overlay\.zip'
+
+[[packages]]
+group = "system"
+name = "sys-clk"
+repo = "retronx-team/sys-clk"
+kind = "archive"
+name_pattern = 'sys-clk.*\.zip'
+actions = ["generate_sysclk_toolbox"]
+
+[[packages]]
+group = "system"
+name = "ldn_mitm"
+repo = "spacemeowx2/ldn_mitm"
+kind = "archive"
+name_pattern = 'ldn_mitm.*\.zip'
+
+[[packages]]
+group = "system"
+name = "emuiibo"
+repo = "XorTroll/emuiibo"
+kind = "archive"
+name_pattern = 'emuiibo\.zip'
+actions = ["copy_sdout_root"]
+
+[[packages]]
+group = "system"
+name = "Ultrahand-Overlay"
+repo = "ppkantorski/Ultrahand-Overlay"
+kind = "archive"
+name_pattern = 'sdout\.zip'
+actions = ["copy_sdout_root"]
+
+[[packages]]
+group = "system"
+name = "ovl-sysmodules"
+repo = "ppkantorski/ovl-sysmodules"
+kind = "file"
+name_pattern = 'ovlSysmodules\.ovl'
+target = "switch/.overlays/ovlSysmodules.ovl"
+
+[[packages]]
+group = "system"
+name = "ReverseNX-RT"
+repo = "masagrator/ReverseNX-RT"
+kind = "file"
+name_pattern = 'ReverseNX-RT.*\.ovl'
+target = "switch/.overlays/ReverseNX-RT-ovl.ovl"
